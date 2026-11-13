@@ -169,7 +169,6 @@ certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
 
 以下項目仍在計劃階段，未有完成時間：
 
-- 在 Windows 電腦上進行完整測試。
 - macOS 及 Windows 程式碼簽署。
 - 3D 插件（例如立體的文件或物件）。
 - 確認並記錄最低系統版本。
