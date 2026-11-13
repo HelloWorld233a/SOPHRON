@@ -1,36 +1,516 @@
-# SOPHRON
+<p align="center">
+  <img src="docs/images/icon.png" width="112" height="112" alt="SOPHRON icon">
+</p>
 
-一張屬於你嘅書枱：專注計時、任務、日誌、課程表、唱片機同白噪音，全部擺喺枱面，撳物件就打開。
-A desk on your screen: focus timer, tasks, journal, timetable, record player and ambient sounds. Tap an object to open it.
+<h1 align="center">SOPHRON</h1>
 
-所有資料只會存喺你部電腦，唔會上網。
-Everything stays on your computer. Nothing is sent online.
+<p align="center">
+  一張屬於你的數碼書桌 · A private desk for your work
+</p>
 
-## 下載 · Download
+<p align="center">
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.1-8a5a3c"></a>
+  <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-555">
+  <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
+  <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
+  <img alt="Rust" src="https://img.shields.io/badge/Rust-2024%20edition-b7410e">
+  <img alt="SQLite" src="https://img.shields.io/badge/SQLite-local-0f80cc">
+</p>
 
-去 [Releases](../../releases/latest) 下載最新版本：
+<p align="center">
+  <a href="#繁體中文">繁體中文</a> · <a href="#english">English</a>
+</p>
 
-| 系統 System | 檔案 File |
-| --- | --- |
-| macOS（Apple Silicon，M1 或之後） | `SOPHRON_x.y.z_macOS_AppleSilicon.dmg` |
-| Windows 10 / 11（64 位元） | `SOPHRON_x.y.z_Windows_x64-setup.exe` |
-
-## 安裝 · Install
-
-**macOS**：打開 `.dmg`，將 SOPHRON 拖入「應用程式」。因為程式未有 Apple 開發者簽名，第一次打開要喺「應用程式」入面**右撳 SOPHRON → 打開 → 再撳「打開」**。之後就可以正常雙擊。
-
-**Windows**：執行 `setup.exe`。如果見到「Windows 已保護您的電腦」，撳**其他資訊 → 仍要執行**（程式未有數碼簽名）。Windows 10 如果未有 WebView2，安裝程式會自動下載。
-
-## 檢查檔案 · Verify
-
-每個 Release 都附有 `SHA256SUMS.txt`。
-
-```
-shasum -a 256 SOPHRON_*.dmg        # macOS
-certutil -hashfile SOPHRON_*.exe SHA256   # Windows
-```
+<p align="center">
+  <img src="docs/images/desk.jpg" alt="SOPHRON desk" width="860">
+</p>
 
 ---
 
-呢個 repo 只發佈安裝檔，唔包含原始碼。
-This repository only distributes installers; the source code is not published.
+# 繁體中文
+
+## 1. SOPHRON
+
+**一張屬於你的數碼書桌。**
+
+## 2. 專案簡介
+
+SOPHRON 是一款以私人數碼書桌為概念的生產力應用程式。主畫面是一張書桌，桌上每件物件對應一項功能：索引卡是專注計時、便利貼是任務、作文簿是日誌、文件夾是紀錄、課程表卡是每週課表。使用者可以按自己的習慣擺放、縮放及增減這些物件。
+
+SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而不是雲端）的桌面應用程式。所有資料只會儲存在使用者的電腦，不需要帳戶，亦不會上傳到網絡。
+
+> 本 repository 只發佈安裝檔，原始碼目前沒有公開。
+
+## 3. 截圖及預覽
+
+以下截圖來自目前版本，畫面內容均為示範資料。
+
+| 書桌主畫面 | 首次使用設定 |
+| :---: | :---: |
+| <img src="docs/images/desk.jpg" alt="書桌主畫面" width="420"> | <img src="docs/images/onboarding.jpg" alt="首次使用設定" width="420"> |
+| **任務** | **課程表** |
+| <img src="docs/images/tasks.jpg" alt="任務" width="420"> | <img src="docs/images/timetable.jpg" alt="課程表" width="420"> |
+| **紀錄** | **唱片機及環境聲混音** |
+| <img src="docs/images/archive.jpg" alt="紀錄" width="420"> | <img src="docs/images/mixer.jpg" alt="唱片機及環境聲混音" width="420"> |
+
+## 4. 主要功能
+
+| 功能 | 說明 |
+| --- | --- |
+| 專注計時 | 番茄鐘式計時，包括專注、短休息、長休息；可設定長度及自動開始；可連結正在處理的任務；顯示今日及最近七日的統計；計時結束時會發出系統通知。 |
+| 任務 | 新增、完成、排序任務；三級優先次序；備註；按「未完成／已完成／全部」篩選；可直接開始專注處理某項任務。 |
+| 日誌 | 每日一頁，支援粗體、斜體、標題、列點、編號及引言；自動儲存；可切換日期；顯示字數。 |
+| 紀錄 | 每週專注時間圖表（十二週）、月曆（顯示每日專注分鐘及日誌紀錄）、專注紀錄、已完成任務及日誌列表。 |
+| 課程表 | 每週課表，可設定科目、時間、地點、老師、顏色及備註；顯示今日「正在上課」及「下一堂」。 |
+| 唱片機 | 播放電腦內自行選擇的音樂檔案，設有播放清單；亦可切換為環境聲模式，自由疊加雨聲、雷聲、風聲、海浪、壁爐、白噪音、粉紅噪音及褐噪音，並提供八個預設組合。 |
+| 資料安全 | 使用本地 SQLite 資料庫；每日自動備份（保留最近十份）；可手動備份及匯出 JSON；刪除項目時提供復原。 |
+| 粗口提示 | 輸入粵語、英文或普通話粗口時顯示提示，不會改動文字內容，可以關閉。 |
+
+## 5. 桌面自訂及插件系統
+
+### 桌面自訂
+
+- 拖動物件改變位置，拉動右下角改變大小。
+- 每件物件可以「置頂」，保持在其他物件上方。
+- 部分物件可以個別更改顏色：鬧鐘外殼、任務便利貼紙色、課程表卡頂部顏色、唱片機底座。
+- 書桌設定：五種桌面木色；八種枱墊顏色及自訂顏色；三種枱墊大小；「整齊模式」限制物件只放在枱墊上；視窗置頂。
+- 首次使用設定：第一次開啟時引導選擇桌面風格、桌上物件及專注時間長度，之後可以在書桌設定中重新進行。
+
+### 插件系統（目前實現程度）
+
+桌上每件物件都是一個「桌面插件」（desk plugin）。目前的插件系統：
+
+| 項目 | 現況 |
+| --- | --- |
+| 插件來源 | 內置於應用程式，在編譯時自動登記。目前不支援在執行期間載入第三方插件。 |
+| 內置插件 | 鬧鐘、專注、任務、日誌、紀錄、課程表、唱片機、便條、薯片，共九個。 |
+| 使用者可進行的操作 | 從左下角「＋」抽屜新增或移除；拖動；縮放（保持比例）；置頂；個別自訂顏色。便條、鬧鐘及薯片可以擺放多於一件。 |
+| 儲存 | 每件物件的位置、大小、層次及設定會儲存在本地資料庫，重新開啟時還原。 |
+| 3D 插件 | **計劃中，尚未開始開發。** |
+
+## 6. 技術架構及使用技術
+
+| 層級 | 技術 |
+| --- | --- |
+| 桌面框架 | [Tauri 2](https://tauri.app/)（以系統內置網頁引擎顯示介面的輕量桌面框架） |
+| 介面 | React 19、TypeScript、Vite |
+| 後端 | Rust（2024 edition） |
+| 資料庫 | SQLite（經 rusqlite，使用 WAL 模式及版本化資料庫遷移） |
+| 文字編輯 | TipTap |
+| 音效 | Web Audio API（環境聲以程式即時合成，不使用錄音檔） |
+
+架構重點：
+
+- **計時器** 由 Rust 端以實際時間戳記運行，即使切換房間或電腦休眠，時間仍然準確。
+- **資料庫遷移前自動備份**，避免升級時遺失資料。
+- **介面** 採用擬物化（skeuomorphism，模仿真實物件質感）設計，所有紋理及圖示均為原創繪製。
+
+## 7. 目前開發狀態
+
+**版本：0.1.0-beta.1（測試版）**
+
+| 項目 | 狀態 |
+| --- | --- |
+| macOS（Apple Silicon） | 已提供安裝檔；功能已在開發者的電腦上以開發版本測試。 |
+| macOS（Intel） | 尚未提供。 |
+| Windows 10 / 11（64 位元） | 已提供安裝檔（於 macOS 交叉編譯），**尚未在 Windows 電腦上實際測試**。 |
+| 程式碼簽署 | 尚未簽署（安裝時會出現系統安全提示，見下文）。 |
+| 最低系統版本 | 待確認。 |
+
+這是測試版本，可能仍有錯誤。建議定期使用書桌設定中的「備份」功能。
+
+## 8. 安裝及使用方法
+
+前往 [Releases](https://github.com/HelloWorld233a/SOPHRON/releases) 下載最新版本：
+
+| 系統 | 檔案 |
+| --- | --- |
+| macOS（Apple Silicon） | `SOPHRON_…_macOS_AppleSilicon.dmg` |
+| Windows 10 / 11（64 位元） | `SOPHRON_…_Windows_x64-setup.exe` |
+
+**macOS**
+
+1. 開啟 `.dmg`，把 SOPHRON 拖到「應用程式」。
+2. 由於應用程式尚未經 Apple 簽署，第一次開啟時請在「應用程式」中按右鍵點選 SOPHRON，選擇「打開」，再按「打開」。之後可以正常開啟。
+
+**Windows**
+
+1. 執行 `setup.exe`。
+2. 如果出現「Windows 已保護您的電腦」，按「其他資訊」→「仍要執行」。
+3. 安裝程式需要 Microsoft WebView2；如電腦尚未安裝，安裝程式會自動下載。
+
+**基本操作**
+
+- 點擊桌上的物件開啟對應功能；按左上角「桌面」或 `Esc` 返回書桌。
+- `⌘`（Windows 為 `Ctrl`）+ `1` 至 `6`：書桌、專注、任務、日誌、紀錄、課程表。
+
+**資料位置**
+
+| 系統 | 位置 |
+| --- | --- |
+| macOS | `~/Library/Application Support/app.sophron.desktop/` |
+| Windows | `%APPDATA%\app.sophron.desktop\` |
+
+資料庫為 `sophron.db`，自動備份位於同一資料夾內的 `backups`。
+
+**檢查檔案**
+
+每個 Release 均附有 `SHA256SUMS.txt`：
+
+```bash
+# macOS
+shasum -a 256 SOPHRON_*.dmg
+```
+
+```powershell
+# Windows
+certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
+```
+
+## 9. 開發環境設定
+
+> 原始碼目前沒有公開。以下資料供專案維護者參考。
+
+| 工具 | 開發時使用的版本 |
+| --- | --- |
+| Node.js | 24.14（最低支援版本待確認） |
+| npm | 11.11 |
+| Rust | 1.100（2024 edition 需要 1.85 或以上） |
+| 平台需求 | 參考 Tauri 官方的 [Prerequisites](https://tauri.app/start/prerequisites/) |
+
+```bash
+npm install
+npm run tauri dev     # 開發模式（含即時更新）
+npm run dev           # 只在瀏覽器預覽介面（部分功能使用示範資料）
+```
+
+## 10. 編譯及建置方法
+
+```bash
+npm run build                           # TypeScript 檢查及前端編譯
+cd src-tauri && cargo test              # Rust 單元測試
+node scripts/profanity.test.ts          # 粗口提示測試
+npm run tauri build -- --bundles app,dmg  # macOS 安裝檔
+```
+
+Windows 安裝檔於 macOS 交叉編譯，需要 `cargo-xwin`、LLVM（`clang-cl`、`lld-link`）及 NSIS：
+
+```bash
+rustup target add x86_64-pc-windows-msvc
+LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
+  npm run tauri build -- --runner cargo-xwin --target x86_64-pc-windows-msvc
+```
+
+（未設定系統語系時，NSIS 可能出現 `bad_alloc` 錯誤。）
+
+## 11. 專案資料夾結構
+
+```text
+SOPHRON/
+├── src/                  介面（React + TypeScript）
+│   ├── app/              外殼、路由、轉場動畫、書桌背景
+│   ├── design/           設計元件、圖示、材質
+│   ├── features/         各功能房間：desk、focus、tasks、journal、archive、timetable、onboarding
+│   ├── plugins/          桌面插件（每個插件一個資料夾）
+│   └── lib/              資料存取、設定、音效、計時器等
+├── src-tauri/            Rust 後端
+│   ├── src/              指令、資料庫、計時器、任務、日誌、課程表、備份
+│   └── icons/            應用程式圖示（原檔：icons/source/app-icon.svg）
+├── public/               靜態資源
+├── scripts/              測試腳本
+└── ARCHITECTURE.md       架構文件
+```
+
+## 12. 插件開發說明
+
+> 適用於擁有原始碼的開發者。目前插件需要隨應用程式一起編譯。
+
+在 `src/plugins/<名稱>/index.tsx` 建立一個資料夾，並以預設匯出提供插件定義。應用程式會自動登記，並在「＋」抽屜中顯示，毋須修改其他程式碼。
+
+```tsx
+import { definePlugin } from "../types";
+
+export default definePlugin({
+  id: "my-note",            // 穩定識別碼，發佈後不可更改
+  name: "My note",
+  zh: "我的筆記",
+  description: "A short description · 簡短說明",
+  category: "things",       // "tools" 或 "things"
+  icon: "note",
+  defaultWidth: 180,        // 預設寬度（px）
+  aspect: 1,                // 高度 ÷ 寬度，縮放時保持
+  multiple: true,           // 可否擺放多於一件
+  defaultSettings: { text: "" },
+  Component: ({ settings, setSettings }) => (
+    <textarea value={settings.text} onChange={(e) => setSettings({ text: e.target.value })} />
+  ),
+});
+```
+
+插件元件會收到 `width`、`height`、`settings`、`setSettings`、`open`（開啟某個功能房間）及 `editing` 等屬性。完整定義見 `src/plugins/types.ts`。
+
+## 13. 未來開發計劃
+
+以下項目仍在計劃階段，未有完成時間：
+
+- 在 Windows 電腦上進行完整測試。
+- macOS 及 Windows 程式碼簽署。
+- 3D 插件（例如立體的文件或物件）。
+- 確認並記錄最低系統版本。
+
+## 14. 參與專案
+
+原始碼目前沒有公開，因此暫時未能接受程式碼貢獻。歡迎透過 [Issues](https://github.com/HelloWorld233a/SOPHRON/issues) 回報問題或提出建議。回報問題時，請附上作業系統版本、SOPHRON 版本及重現步驟。
+
+## 15. 授權
+
+目前尚未指定授權。
+
+## 16. 致謝
+
+SOPHRON 使用以下開源專案：[Tauri](https://tauri.app/)、[React](https://react.dev/)、[Vite](https://vite.dev/)、[TipTap](https://tiptap.dev/)、[rusqlite](https://github.com/rusqlite/rusqlite) 及 [SQLite](https://sqlite.org/)。介面字型 Inter、Caveat 及 Cormorant Garamond 以 SIL Open Font License 授權，經 [Fontsource](https://fontsource.org/) 提供。
+
+---
+
+# English
+
+## 1. SOPHRON
+
+**A private desk for your work.**
+
+## 2. Overview
+
+SOPHRON is a productivity app built around the idea of a private digital desk. The main screen is a desk, and each object on it opens one feature: an index card for the focus timer, a sticky note for tasks, a composition book for the journal, a folder for the archive and a timetable card for your weekly classes. You can arrange, resize, add and remove these objects to suit the way you work.
+
+SOPHRON is a local-first desktop app. All data stays on your own computer: there is no account and nothing is sent over the network.
+
+> This repository only distributes installers. The source code is not currently public.
+
+## 3. Screenshots
+
+The screenshots below come from the current version and show demo data.
+
+| The desk | First-run setup |
+| :---: | :---: |
+| <img src="docs/images/desk.jpg" alt="The desk" width="420"> | <img src="docs/images/onboarding.jpg" alt="First-run setup" width="420"> |
+| **Tasks** | **Timetable** |
+| <img src="docs/images/tasks.jpg" alt="Tasks" width="420"> | <img src="docs/images/timetable.jpg" alt="Timetable" width="420"> |
+| **Archive** | **Record player and ambient mixer** |
+| <img src="docs/images/archive.jpg" alt="Archive" width="420"> | <img src="docs/images/mixer.jpg" alt="Record player and ambient mixer" width="420"> |
+
+## 4. Features
+
+| Feature | Description |
+| --- | --- |
+| Focus timer | Pomodoro-style timer with focus, short break and long break; adjustable lengths and auto-start; can be linked to the task you are working on; statistics for today and the last seven days; a system notification when a phase ends. |
+| Tasks | Add, complete and reorder tasks; three priority levels; notes; filter by open, done or all; start a focus session on a task directly. |
+| Journal | One page per day with bold, italic, headings, bulleted and numbered lists and quotes; saves automatically; date navigation; word count. |
+| Archive | Weekly focus chart (twelve weeks), a month calendar showing focus minutes and journal entries per day, focus history, completed tasks and a list of journal entries. |
+| Timetable | Weekly timetable with subject, time, room, teacher, colour and notes; shows the class in progress and the next class today. |
+| Record player | Plays music files you choose from your computer, with a playlist; or switch to ambient mode and layer rain, thunder, wind, waves, fireplace, white, pink and brown noise freely, with eight presets. |
+| Data safety | Local SQLite database; automatic daily backup (the latest ten are kept); manual backup and JSON export; undo when deleting items. |
+| Language reminder | Shows a small note when swear words are typed in Cantonese, English or Mandarin. The text is never changed, and the reminder can be turned off. |
+
+## 5. Desk customisation and plugin system
+
+### Customising the desk
+
+- Drag an object to move it, and drag its bottom-right corner to resize it.
+- Any object can be pinned so it stays above the others.
+- Some objects have their own colour options: the alarm clock case, the task note paper, the timetable card header and the record player plinth.
+- Desk settings: five wood finishes; eight desk mat colours plus a custom colour; three mat sizes; a tidy mode that keeps every object on the mat; keep the window on top.
+- First-run setup: on first launch, SOPHRON helps you choose the desk style, the objects on the desk and the focus length. It can be run again from desk settings.
+
+### Plugin system (current state)
+
+Every object on the desk is a desk plugin. The plugin system currently works as follows:
+
+| Item | Current state |
+| --- | --- |
+| Where plugins come from | Built into the app and registered automatically at build time. Loading third-party plugins at runtime is not supported yet. |
+| Built-in plugins | Alarm clock, Focus, Tasks, Journal, Archive, Timetable, Record player, Memo and Crisps: nine in total. |
+| What you can do with them | Add or remove them from the "+" drawer in the bottom-left corner; drag; resize (aspect ratio is kept); pin on top; change colours per object. Memos, alarm clocks and crisps can be placed more than once. |
+| Storage | The position, size, stacking order and settings of every object are saved in the local database and restored on the next launch. |
+| 3D plugins | **Planned; development has not started.** |
+
+## 6. Architecture and technology
+
+| Layer | Technology |
+| --- | --- |
+| Desktop framework | [Tauri 2](https://tauri.app/), a lightweight desktop framework that renders the interface with the system web engine |
+| Interface | React 19, TypeScript, Vite |
+| Backend | Rust (2024 edition) |
+| Database | SQLite (through rusqlite, with WAL mode and versioned migrations) |
+| Text editor | TipTap |
+| Audio | Web Audio API (ambient sounds are synthesised in real time; no recordings are used) |
+
+Key design points:
+
+- **The timer** runs in Rust on wall-clock timestamps, so it stays accurate when you switch rooms or the computer sleeps.
+- **The database is backed up automatically before each migration**, so an upgrade cannot lose data.
+- **The interface** uses a skeuomorphic design (imitating the look of real objects); all textures and icons are original artwork.
+
+## 7. Development status
+
+**Version: 0.1.0-beta.1 (beta)**
+
+| Item | Status |
+| --- | --- |
+| macOS (Apple Silicon) | Installer available; features tested on the developer's computer with the development build. |
+| macOS (Intel) | Not available yet. |
+| Windows 10 / 11 (64-bit) | Installer available (cross-compiled on macOS); **not yet tested on a Windows computer**. |
+| Code signing | Not signed yet (the system shows a security prompt during installation; see below). |
+| Minimum OS version | To be confirmed. |
+
+This is a beta release and may still contain bugs. Please use the Back up button in desk settings regularly.
+
+## 8. Installation and use
+
+Download the latest version from [Releases](https://github.com/HelloWorld233a/SOPHRON/releases):
+
+| System | File |
+| --- | --- |
+| macOS (Apple Silicon) | `SOPHRON_…_macOS_AppleSilicon.dmg` |
+| Windows 10 / 11 (64-bit) | `SOPHRON_…_Windows_x64-setup.exe` |
+
+**macOS**
+
+1. Open the `.dmg` and drag SOPHRON into Applications.
+2. The app is not signed by Apple yet. The first time, right-click SOPHRON in Applications, choose Open, then click Open. After that it opens normally.
+
+**Windows**
+
+1. Run `setup.exe`.
+2. If you see "Windows protected your PC", click More info, then Run anyway.
+3. The installer needs Microsoft WebView2 and downloads it automatically if it is missing.
+
+**Basics**
+
+- Click an object on the desk to open its feature. Click Desk in the top-left corner, or press `Esc`, to return.
+- `⌘` (`Ctrl` on Windows) + `1` to `6`: Desk, Focus, Tasks, Journal, Archive, Timetable.
+
+**Where your data is stored**
+
+| System | Location |
+| --- | --- |
+| macOS | `~/Library/Application Support/app.sophron.desktop/` |
+| Windows | `%APPDATA%\app.sophron.desktop\` |
+
+The database is `sophron.db`; automatic backups are in the `backups` folder next to it.
+
+**Verifying downloads**
+
+Each release includes `SHA256SUMS.txt`:
+
+```bash
+# macOS
+shasum -a 256 SOPHRON_*.dmg
+```
+
+```powershell
+# Windows
+certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
+```
+
+## 9. Development setup
+
+> The source code is not currently public. This section is for the project maintainers.
+
+| Tool | Version used in development |
+| --- | --- |
+| Node.js | 24.14 (minimum supported version to be confirmed) |
+| npm | 11.11 |
+| Rust | 1.100 (the 2024 edition requires 1.85 or later) |
+| Platform requirements | See the official Tauri [Prerequisites](https://tauri.app/start/prerequisites/) |
+
+```bash
+npm install
+npm run tauri dev     # development mode with live reload
+npm run dev           # interface only, in a browser (some features use demo data)
+```
+
+## 10. Building
+
+```bash
+npm run build                           # TypeScript check and front-end build
+cd src-tauri && cargo test              # Rust unit tests
+node scripts/profanity.test.ts          # language reminder tests
+npm run tauri build -- --bundles app,dmg  # macOS installer
+```
+
+The Windows installer is cross-compiled on macOS and needs `cargo-xwin`, LLVM (`clang-cl`, `lld-link`) and NSIS:
+
+```bash
+rustup target add x86_64-pc-windows-msvc
+LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
+  npm run tauri build -- --runner cargo-xwin --target x86_64-pc-windows-msvc
+```
+
+(NSIS may fail with `bad_alloc` when no system locale is set.)
+
+## 11. Project structure
+
+```text
+SOPHRON/
+├── src/                  Interface (React + TypeScript)
+│   ├── app/              Shell, routes, transitions, desk background
+│   ├── design/           Design components, icons, materials
+│   ├── features/         Rooms: desk, focus, tasks, journal, archive, timetable, onboarding
+│   ├── plugins/          Desk plugins (one folder per plugin)
+│   └── lib/              Data access, settings, audio, timer and more
+├── src-tauri/            Rust backend
+│   ├── src/              Commands, database, timer, tasks, journal, timetable, backups
+│   └── icons/            App icons (source: icons/source/app-icon.svg)
+├── public/               Static assets
+├── scripts/              Test scripts
+└── ARCHITECTURE.md       Architecture notes
+```
+
+## 12. Writing a plugin
+
+> For developers with access to the source code. Plugins are currently compiled into the app.
+
+Create a folder `src/plugins/<name>/` with an `index.tsx` whose default export is the plugin definition. The app registers it automatically and shows it in the "+" drawer; no other code needs to change.
+
+```tsx
+import { definePlugin } from "../types";
+
+export default definePlugin({
+  id: "my-note",            // stable id; never change it once released
+  name: "My note",
+  zh: "我的筆記",
+  description: "A short description · 簡短說明",
+  category: "things",       // "tools" or "things"
+  icon: "note",
+  defaultWidth: 180,        // default width in px
+  aspect: 1,                // height ÷ width, kept when resizing
+  multiple: true,           // can more than one be placed?
+  defaultSettings: { text: "" },
+  Component: ({ settings, setSettings }) => (
+    <textarea value={settings.text} onChange={(e) => setSettings({ text: e.target.value })} />
+  ),
+});
+```
+
+A plugin component receives `width`, `height`, `settings`, `setSettings`, `open` (to open a room) and `editing`, among others. See `src/plugins/types.ts` for the full definition.
+
+## 13. Roadmap
+
+These items are planned and have no release date yet:
+
+- Full testing on Windows computers.
+- Code signing for macOS and Windows.
+- 3D plugins (for example, a three-dimensional document or object).
+- Confirming and documenting the minimum OS versions.
+
+## 14. Contributing
+
+The source code is not public yet, so code contributions cannot be accepted for now. Bug reports and suggestions are welcome in [Issues](https://github.com/HelloWorld233a/SOPHRON/issues). When reporting a problem, please include your operating system version, the SOPHRON version and the steps to reproduce it.
+
+## 15. License
+
+No license has been specified yet.
+
+## 16. Acknowledgements
+
+SOPHRON is built with these open-source projects: [Tauri](https://tauri.app/), [React](https://react.dev/), [Vite](https://vite.dev/), [TipTap](https://tiptap.dev/), [rusqlite](https://github.com/rusqlite/rusqlite) and [SQLite](https://sqlite.org/). The interface fonts Inter, Caveat and Cormorant Garamond are licensed under the SIL Open Font License and provided through [Fontsource](https://fontsource.org/).
