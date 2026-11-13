@@ -167,89 +167,7 @@ shasum -a 256 SOPHRON_*.dmg
 certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
 ```
 
-## 9. 開發環境設定
-
-> 原始碼目前沒有公開。以下資料供專案維護者參考。
-
-| 工具 | 開發時使用的版本 |
-| --- | --- |
-| Node.js | 24.14（最低支援版本待確認） |
-| npm | 11.11 |
-| Rust | 1.100（2024 edition 需要 1.85 或以上） |
-| 平台需求 | 參考 Tauri 官方的 [Prerequisites](https://tauri.app/start/prerequisites/) |
-
-```bash
-npm install
-npm run tauri dev     # 開發模式（含即時更新）
-npm run dev           # 只在瀏覽器預覽介面（部分功能使用示範資料）
-```
-
-## 10. 編譯及建置方法
-
-```bash
-npm run build                           # TypeScript 檢查及前端編譯
-cd src-tauri && cargo test              # Rust 單元測試
-node scripts/profanity.test.ts          # 粗口提示測試
-npm run tauri build -- --bundles app,dmg  # macOS 安裝檔
-```
-
-Windows 安裝檔於 macOS 交叉編譯，需要 `cargo-xwin`、LLVM（`clang-cl`、`lld-link`）及 NSIS：
-
-```bash
-rustup target add x86_64-pc-windows-msvc
-LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
-  npm run tauri build -- --runner cargo-xwin --target x86_64-pc-windows-msvc
-```
-
-（未設定系統語系時，NSIS 可能出現 `bad_alloc` 錯誤。）
-
-## 11. 專案資料夾結構
-
-```text
-SOPHRON/
-├── src/                  介面（React + TypeScript）
-│   ├── app/              外殼、路由、轉場動畫、書桌背景
-│   ├── design/           設計元件、圖示、材質
-│   ├── features/         各功能房間：desk、focus、tasks、journal、archive、timetable、onboarding
-│   ├── plugins/          桌面插件（每個插件一個資料夾）
-│   └── lib/              資料存取、設定、音效、計時器等
-├── src-tauri/            Rust 後端
-│   ├── src/              指令、資料庫、計時器、任務、日誌、課程表、備份
-│   └── icons/            應用程式圖示（原檔：icons/source/app-icon.svg）
-├── public/               靜態資源
-├── scripts/              測試腳本
-└── ARCHITECTURE.md       架構文件
-```
-
-## 12. 插件開發說明
-
-> 適用於擁有原始碼的開發者。目前插件需要隨應用程式一起編譯。
-
-在 `src/plugins/<名稱>/index.tsx` 建立一個資料夾，並以預設匯出提供插件定義。應用程式會自動登記，並在「＋」抽屜中顯示，毋須修改其他程式碼。
-
-```tsx
-import { definePlugin } from "../types";
-
-export default definePlugin({
-  id: "my-note",            // 穩定識別碼，發佈後不可更改
-  name: "My note",
-  zh: "我的筆記",
-  description: "A short description · 簡短說明",
-  category: "things",       // "tools" 或 "things"
-  icon: "note",
-  defaultWidth: 180,        // 預設寬度（px）
-  aspect: 1,                // 高度 ÷ 寬度，縮放時保持
-  multiple: true,           // 可否擺放多於一件
-  defaultSettings: { text: "" },
-  Component: ({ settings, setSettings }) => (
-    <textarea value={settings.text} onChange={(e) => setSettings({ text: e.target.value })} />
-  ),
-});
-```
-
-插件元件會收到 `width`、`height`、`settings`、`setSettings`、`open`（開啟某個功能房間）及 `editing` 等屬性。完整定義見 `src/plugins/types.ts`。
-
-## 13. 未來開發計劃
+## 9. 未來開發計劃
 
 以下項目仍在計劃階段，未有完成時間：
 
@@ -258,15 +176,15 @@ export default definePlugin({
 - 3D 插件（例如立體的文件或物件）。
 - 確認並記錄最低系統版本。
 
-## 14. 參與專案
+## 10. 參與專案
 
 原始碼目前沒有公開，因此暫時未能接受程式碼貢獻。歡迎透過 [Issues](https://github.com/HelloWorld233a/SOPHRON/issues) 回報問題或提出建議。回報問題時，請附上作業系統版本、SOPHRON 版本及重現步驟。
 
-## 15. 授權
+## 11. 授權
 
 目前尚未指定授權。
 
-## 16. 致謝
+## 12. 致謝
 
 SOPHRON 使用以下開源專案：[Tauri](https://tauri.app/)、[React](https://react.dev/)、[Vite](https://vite.dev/)、[TipTap](https://tiptap.dev/)、[rusqlite](https://github.com/rusqlite/rusqlite) 及 [SQLite](https://sqlite.org/)。介面字型 Inter、Caveat 及 Cormorant Garamond 以 SIL Open Font License 授權，經 [Fontsource](https://fontsource.org/) 提供。
 
@@ -412,89 +330,7 @@ shasum -a 256 SOPHRON_*.dmg
 certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
 ```
 
-## 9. Development setup
-
-> The source code is not currently public. This section is for the project maintainers.
-
-| Tool | Version used in development |
-| --- | --- |
-| Node.js | 24.14 (minimum supported version to be confirmed) |
-| npm | 11.11 |
-| Rust | 1.100 (the 2024 edition requires 1.85 or later) |
-| Platform requirements | See the official Tauri [Prerequisites](https://tauri.app/start/prerequisites/) |
-
-```bash
-npm install
-npm run tauri dev     # development mode with live reload
-npm run dev           # interface only, in a browser (some features use demo data)
-```
-
-## 10. Building
-
-```bash
-npm run build                           # TypeScript check and front-end build
-cd src-tauri && cargo test              # Rust unit tests
-node scripts/profanity.test.ts          # language reminder tests
-npm run tauri build -- --bundles app,dmg  # macOS installer
-```
-
-The Windows installer is cross-compiled on macOS and needs `cargo-xwin`, LLVM (`clang-cl`, `lld-link`) and NSIS:
-
-```bash
-rustup target add x86_64-pc-windows-msvc
-LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
-  npm run tauri build -- --runner cargo-xwin --target x86_64-pc-windows-msvc
-```
-
-(NSIS may fail with `bad_alloc` when no system locale is set.)
-
-## 11. Project structure
-
-```text
-SOPHRON/
-├── src/                  Interface (React + TypeScript)
-│   ├── app/              Shell, routes, transitions, desk background
-│   ├── design/           Design components, icons, materials
-│   ├── features/         Rooms: desk, focus, tasks, journal, archive, timetable, onboarding
-│   ├── plugins/          Desk plugins (one folder per plugin)
-│   └── lib/              Data access, settings, audio, timer and more
-├── src-tauri/            Rust backend
-│   ├── src/              Commands, database, timer, tasks, journal, timetable, backups
-│   └── icons/            App icons (source: icons/source/app-icon.svg)
-├── public/               Static assets
-├── scripts/              Test scripts
-└── ARCHITECTURE.md       Architecture notes
-```
-
-## 12. Writing a plugin
-
-> For developers with access to the source code. Plugins are currently compiled into the app.
-
-Create a folder `src/plugins/<name>/` with an `index.tsx` whose default export is the plugin definition. The app registers it automatically and shows it in the "+" drawer; no other code needs to change.
-
-```tsx
-import { definePlugin } from "../types";
-
-export default definePlugin({
-  id: "my-note",            // stable id; never change it once released
-  name: "My note",
-  zh: "我的筆記",
-  description: "A short description · 簡短說明",
-  category: "things",       // "tools" or "things"
-  icon: "note",
-  defaultWidth: 180,        // default width in px
-  aspect: 1,                // height ÷ width, kept when resizing
-  multiple: true,           // can more than one be placed?
-  defaultSettings: { text: "" },
-  Component: ({ settings, setSettings }) => (
-    <textarea value={settings.text} onChange={(e) => setSettings({ text: e.target.value })} />
-  ),
-});
-```
-
-A plugin component receives `width`, `height`, `settings`, `setSettings`, `open` (to open a room) and `editing`, among others. See `src/plugins/types.ts` for the full definition.
-
-## 13. Roadmap
+## 9. Roadmap
 
 These items are planned and have no release date yet:
 
@@ -503,14 +339,14 @@ These items are planned and have no release date yet:
 - 3D plugins (for example, a three-dimensional document or object).
 - Confirming and documenting the minimum OS versions.
 
-## 14. Contributing
+## 10. Contributing
 
 The source code is not public yet, so code contributions cannot be accepted for now. Bug reports and suggestions are welcome in [Issues](https://github.com/HelloWorld233a/SOPHRON/issues). When reporting a problem, please include your operating system version, the SOPHRON version and the steps to reproduce it.
 
-## 15. License
+## 11. License
 
 No license has been specified yet.
 
-## 16. Acknowledgements
+## 12. Acknowledgements
 
 SOPHRON is built with these open-source projects: [Tauri](https://tauri.app/), [React](https://react.dev/), [Vite](https://vite.dev/), [TipTap](https://tiptap.dev/), [rusqlite](https://github.com/rusqlite/rusqlite) and [SQLite](https://sqlite.org/). The interface fonts Inter, Caveat and Cormorant Garamond are licensed under the SIL Open Font License and provided through [Fontsource](https://fontsource.org/).
