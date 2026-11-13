@@ -111,7 +111,7 @@ Key design points:
 | --- | --- |
 | macOS (Apple Silicon) | Installer available; features tested on the developer's computer with the development build. |
 | macOS (Intel) | Not available yet. |
-| Windows 10 / 11 (64-bit) | Installer available (cross-compiled on macOS); **not yet tested on a Windows computer**. |
+| Windows 10 / 11 (64-bit) | Installer available (Fonts may have some problem). |
 | Code signing | Not signed yet (the system shows a security prompt during installation; see below). |
 | Minimum OS version | To be confirmed. |
 
