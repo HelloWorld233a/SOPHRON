@@ -169,7 +169,6 @@ certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
 
 These items are planned and have no release date yet:
 
-- Full testing on Windows computers.
 - Code signing for macOS and Windows.
 - 3D plugins (for example, a three-dimensional document or object).
 - Confirming and documenting the minimum OS versions.
