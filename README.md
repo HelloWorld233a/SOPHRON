@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.1-8a5a3c"></a>
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.2-8a5a3c"></a>
   <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-555">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
@@ -59,8 +59,8 @@ The screenshots below come from the current version and show demo data.
 | Tasks | Add, complete and reorder tasks; three priority levels; notes; filter by open, done or all; start a focus session on a task directly. |
 | Journal | One page per day with bold, italic, headings, bulleted and numbered lists and quotes; saves automatically; date navigation; word count. |
 | Archive | Weekly focus chart (twelve weeks), a month calendar showing focus minutes and journal entries per day, focus history, completed tasks and a list of journal entries. |
-| Timetable | Weekly timetable with subject, time, room, teacher, colour and notes; shows the class in progress and the next class today. |
-| Record player | Plays music files you choose from your computer, with a playlist; or switch to ambient mode and layer rain, thunder, wind, waves, fireplace, white, pink and brown noise freely, with eight presets. |
+| Timetable | Weekly timetable with subject, time, room, teacher, colour and notes; shows the class in progress and the next class today. Set up the periods of your school day and view the week by time or by period; add a class on several days at once, or place one subject into many periods in one go; a warning when classes overlap; changing the bell times moves the classes with them. |
+| Record player | Plays music files you choose from your computer. Tap the record for its panel: playlist (play, reorder, remove), repeat all or one, shuffle, volume, a progress bar you can drag, and the record's colour. Or switch to ambient mode and layer rain, thunder, wind, waves, fireplace, white, pink and brown noise freely, with eight presets. |
 | Data safety | Local SQLite database; automatic daily backup (the latest ten are kept); manual backup and JSON export; undo when deleting items. |
 | Language reminder | Shows a small note when swear words are typed in Cantonese, English or Mandarin. The text is never changed, and the reminder can be turned off. |
 
@@ -84,7 +84,7 @@ Every object on the desk is a desk plugin. The plugin system currently works as 
 | Built-in plugins | Alarm clock, Focus, Tasks, Journal, Archive, Timetable, Record player, Memo and Crisps: nine in total. |
 | What you can do with them | Add or remove them from the "+" drawer in the bottom-left corner; drag; resize (aspect ratio is kept); pin on top; change colours per object. Memos, alarm clocks and crisps can be placed more than once. |
 | Storage | The position, size, stacking order and settings of every object are saved in the local database and restored on the next launch. |
-| 3D plugins | **Planned; development has not started.** |
+| 3D plugins | **Ready, still experimental, and off by default.** They include a hardbound journal book, a focus cube, a tent-shaped desk calendar, a bag of crisps and a memo you can lift up (with a hidden place underneath, and an optional password). Switching 3D on or off never changes your data. |
 
 ## 6. Architecture and technology
 
@@ -105,17 +105,26 @@ Key design points:
 
 ## 7. Development status
 
-**Version: 0.1.0-beta.1 (beta)**
+**Version: 0.1.0-beta.2 (beta)**
 
 | Item | Status |
 | --- | --- |
 | macOS (Apple Silicon) | Installer available; features tested on the developer's computer with the development build. |
 | macOS (Intel) | Not available yet. |
-| Windows 10 / 11 (64-bit) | Installer available (Fonts may have some problem). |
+| Windows 10 / 11 (64-bit) | Installer available. The Chinese font problem in beta 1 is fixed in beta 2 (please report it in Issues if you still see it). |
 | Code signing | Not signed yet (the system shows a security prompt during installation; see below). |
 | Minimum OS version | To be confirmed. |
 
 This is a beta release and may still contain bugs. Please use the Back up button in desk settings regularly.
+
+### What's new in 0.1.0-beta.2
+
+- **Record player:** tap the record to open its panel with the playlist, repeat, shuffle, volume, progress and appearance.
+- **Timetable:** periods (節數), adding a class on several days at once, batch adding, overlap warnings, and classes that follow the bell times.
+- **Windows:** full screen (F11, or the switch in desk settings), and Chinese text now uses Microsoft JhengHei, so it is no longer thin and jagged.
+- **Smoother:** opening and closing rooms is smoother, and text on screen can no longer be selected by accident (only the places you type into).
+- **3D:** ready, but still experimental and off by default (see the plugin table above).
+- Many bug fixes.
 
 ## 8. Installation and use
 
@@ -140,6 +149,7 @@ Download the latest version from [Releases](https://github.com/HelloWorld233a/SO
 **Basics**
 
 - Click an object on the desk to open its feature. Click Desk in the top-left corner, or press `Esc`, to return.
+- Windows: `F11` switches full screen on and off.
 - `⌘` (`Ctrl` on Windows) + `1` to `6`: Desk, Focus, Tasks, Journal, Archive, Timetable.
 
 **Where your data is stored**
@@ -162,7 +172,7 @@ shasum -a 256 SOPHRON_*.dmg
 
 ```powershell
 # Windows
-certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
+certutil -hashfile SOPHRON_0.1.0-beta.2_Windows_x64-setup.exe SHA256
 ```
 
 ## 9. Roadmap
@@ -170,7 +180,7 @@ certutil -hashfile SOPHRON_0.1.0-beta.1_Windows_x64-setup.exe SHA256
 These items are planned and have no release date yet:
 
 - Code signing for macOS and Windows.
-- 3D plugins (for example, a three-dimensional document or object).
+- Finishing and testing the 3D plugins, then turning them on for everyone.
 - Confirming and documenting the minimum OS versions.
 
 ## 10. Contributing
