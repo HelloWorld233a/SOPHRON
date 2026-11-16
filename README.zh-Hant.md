@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.2-8a5a3c"></a>
-  <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-555">
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.3-8a5a3c"></a>
+  <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Android-555">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
   <img alt="Rust" src="https://img.shields.io/badge/Rust-2024%20edition-b7410e">
@@ -90,7 +90,7 @@ SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而�
 | 內置插件 | 鬧鐘、專注、任務、日誌、紀錄、課程表、唱片機、便條、薯片，共九個。 |
 | 使用者可進行的操作 | 從左下角「＋」抽屜新增或移除；拖動；縮放（保持比例）；置頂；個別自訂顏色。便條、鬧鐘及薯片可以擺放多於一件。 |
 | 儲存 | 每件物件的位置、大小、層次及設定會儲存在本地資料庫，重新開啟時還原。 |
-| 3D 插件 | **已預備好，仍在實驗階段，預設關閉。** 包括精裝日誌書、專注方塊、座枱日曆、一包薯片，以及可以揭起的便條（下面有隱藏空間，可設定密碼）。開啟或關閉 3D 都不會改動你的資料。 |
+| 3D 插件 | **實驗功能，已向所有人開放。** 在書桌設定有開關（電腦上預設開啟）。包括精裝日誌書、專注方塊、座枱日曆、一包薯片，以及可以揭起的便條（下面有隱藏空間，可設定密碼）。開啟或關閉 3D 都不會改動你的資料。低效能模式開啟時會暫停使用 3D。 |
 
 ## 6. 技術架構及使用技術
 
@@ -111,17 +111,27 @@ SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而�
 
 ## 7. 目前開發狀態
 
-**版本：0.1.0-beta.2（測試版）**
+**版本：0.1.0-beta.3（測試版）**
 
 | 項目 | 狀態 |
 | --- | --- |
 | macOS（Apple Silicon） | 已提供安裝檔；功能已在開發者的電腦上以開發版本測試。 |
 | macOS（Intel） | 尚未提供。 |
 | Windows 10 / 11（64 位元） | 已提供安裝檔。beta 1 的中文字體問題已在 beta 2 修正（如仍有問題，歡迎在 Issues 回報）。 |
+| Android 平板（arm64，Android 7.0 或以上） | **beta 3 新增：** 可安裝嘅 APK。已喺電腦上編譯同檢查；**歡迎回報喺你部平板上嘅表現。** |
 | 程式碼簽署 | 尚未簽署（安裝時會出現系統安全提示，見下文）。 |
 | 最低系統版本 | 待確認。 |
 
 這是測試版本，可能仍有錯誤。建議定期使用書桌設定中的「備份」功能。
+
+### 0.1.0-beta.3 更新重點
+
+- **Android 平板：** SOPHRON 而家有 APK 俾 Android 平板安裝（橫向、全螢幕）。喺觸控螢幕上，撳住物件（手指位會有個圓圈慢慢填滿）先會拎起移動，所以掃一下唔會誤拖動物件。
+- **3D 向所有人開放：** 書桌設定有「實驗功能」開關，電腦上預設開啟。低效能模式開啟時會暫停使用。
+- **低效能模式：** 書桌設定同首次設定都有開關。減少特效同取消開關房間動畫，適合舊機。Android 低過 10，或者較舊／入門級處理器會自動開啟（[清單公開](docs/LOW_POWER_CHIPS.md)）。
+- **網上示範版：** 直接喺瀏覽器試玩，有示範任務、課程表同日誌。
+- **便條：** 觸控螢幕上長文字可以捲動。
+- 修正多項錯誤。
 
 ### 0.1.0-beta.2 更新重點
 
@@ -140,6 +150,7 @@ SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而�
 | --- | --- |
 | macOS（Apple Silicon） | `SOPHRON_…_macOS_AppleSilicon.dmg` |
 | Windows 10 / 11（64 位元） | `SOPHRON_…_Windows_x64-setup.exe` |
+| Android 平板（arm64） | `SOPHRON_…_Android_arm64.apk` |
 
 **macOS**
 
@@ -151,6 +162,14 @@ SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而�
 1. 執行 `setup.exe`。
 2. 如果出現「Windows 已保護您的電腦」，按「其他資訊」→「仍要執行」。
 3. 安裝程式需要 Microsoft WebView2；如電腦尚未安裝，安裝程式會自動下載。
+
+**Android**
+
+1. 喺平板下載 `.apk`（或者由電腦傳過去）。
+2. 開啟檔案。Android 會問你准唔准用呢個來源安裝程式：請俾你用嘅瀏覽器或者檔案管理員通過。
+3. 安裝並開啟 SOPHRON。更新時直接用新版 `.apk` 覆蓋安裝（每個版本都用同一條鎖匙簽名，資料會保留）。
+4. 你嘅資料存喺 app 自己嘅儲存空間，**解除安裝 app 會一併刪除資料**。請使用書桌設定嘅「備份」；備份都喺 app 入面，所以解除安裝後亦會冇咗。Android 版暫時冇匯出同「打開備份資料夾」。
+5. 加入嘅音樂檔只可以播到閂 app 為止，唔會留喺播放清單；環境聲唔受影響。
 
 **基本操作**
 
@@ -178,7 +197,7 @@ shasum -a 256 SOPHRON_*.dmg
 
 ```powershell
 # Windows
-certutil -hashfile SOPHRON_0.1.0-beta.2_Windows_x64-setup.exe SHA256
+certutil -hashfile SOPHRON_0.1.0-beta.3_Windows_x64-setup.exe SHA256
 ```
 
 ## 9. 未來開發計劃
@@ -186,7 +205,8 @@ certutil -hashfile SOPHRON_0.1.0-beta.2_Windows_x64-setup.exe SHA256
 以下項目仍在計劃階段，未有完成時間：
 
 - macOS 及 Windows 程式碼簽署。
-- 完成及測試 3D 插件，然後為所有使用者開啟。
+- 完成及測試 3D 插件，然後取消「實驗功能」標籤。
+- 喺更多 Android 平板上測試，並為 Android 加入匯出同匯入。
 - 確認並記錄最低系統版本。
 
 ## 10. 參與專案
