@@ -25,6 +25,10 @@
   <img src="docs/images/desk.jpg" alt="SOPHRON desk" width="860">
 </p>
 
+<p align="center">
+  <a href="https://helloworld233a.github.io/SOPHRON/"><b>▶ 網上試玩</b></a> — 直接喺瀏覽器試，有示範任務、課程表同日誌（唔會儲存任何資料）。
+</p>
+
 ---
 
 ## 1. SOPHRON
@@ -38,6 +42,8 @@ SOPHRON 是一款以私人數碼書桌為概念的生產力應用程式。主畫
 SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而不是雲端）的桌面應用程式。所有資料只會儲存在使用者的電腦，不需要帳戶，亦不會上傳到網絡。
 
 > 本 repository 只發佈安裝檔，原始碼目前沒有公開。
+
+**免安裝試玩：** [網上示範版](https://helloworld233a.github.io/SOPHRON/)喺瀏覽器入面行，好似商店嘅示範機一樣：已經有示範任務、課程表、日誌同專注紀錄，3D 物件亦已開啟。每次打開都係全新開始，唔會儲存任何資料。示範版只係試食；正式版會將資料存喺你部電腦、自動備份，同埋播放你自己嘅音樂。
 
 ## 3. 截圖及預覽
 
