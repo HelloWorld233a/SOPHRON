@@ -25,6 +25,10 @@
   <img src="docs/images/desk.jpg" alt="SOPHRON desk" width="860">
 </p>
 
+<p align="center">
+  <a href="https://helloworld233a.github.io/SOPHRON/"><b>▶ Try it online</b></a> — a demo with sample tasks, timetable and journal, right in your browser (nothing is saved).
+</p>
+
 ---
 
 ## 1. SOPHRON
@@ -38,6 +42,8 @@ SOPHRON is a productivity app built around the idea of a private digital desk. T
 SOPHRON is a local-first desktop app. All data stays on your own computer: there is no account and nothing is sent over the network.
 
 > This repository only distributes installers. The source code is not currently public.
+
+**Try it without installing:** [the online demo](https://helloworld233a.github.io/SOPHRON/) runs in your browser, like a demo unit in a shop. It comes with example tasks, a timetable, journal entries and focus history, and the 3D objects are switched on. It starts afresh every time and saves nothing. The demo is a sampler: the real app keeps your data on your computer, backs it up, and plays your own music.
 
 ## 3. Screenshots
 
