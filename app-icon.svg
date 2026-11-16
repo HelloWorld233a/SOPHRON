@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!--
+    SOPHRON app icon. Original artwork, drawn entirely from basic shapes and gradients
+    for this project: no photos, fonts, logos or third-party artwork are used.
+    An oak desk top, an index card with a ticked line, and a plain yellow pencil.
+    Follows the macOS icon grid: 824 x 824 tile inside a 1024 canvas.
+  -->
+  <defs>
+    <clipPath id="tile">
+      <rect x="100" y="100" width="824" height="824" rx="185" />
+    </clipPath>
+
+    <!-- oak -->
+    <linearGradient id="oak" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0" stop-color="#d6a46b" />
+      <stop offset="0.55" stop-color="#b98249" />
+      <stop offset="1" stop-color="#93622f" />
+    </linearGradient>
+    <radialGradient id="daylight" cx="0.22" cy="0.12" r="0.9">
+      <stop offset="0" stop-color="#fff3dc" stop-opacity="0.38" />
+      <stop offset="0.6" stop-color="#fff3dc" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="vignette" cx="0.45" cy="0.4" r="0.75">
+      <stop offset="0.65" stop-color="#2a1404" stop-opacity="0" />
+      <stop offset="1" stop-color="#2a1404" stop-opacity="0.35" />
+    </radialGradient>
+
+    <!-- card -->
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffdf6" />
+      <stop offset="1" stop-color="#f1ead8" />
+    </linearGradient>
+
+    <!-- pencil -->
+    <linearGradient id="pencilBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b8860f" />
+      <stop offset="0.2" stop-color="#ffd84a" />
+      <stop offset="0.48" stop-color="#f2b625" />
+      <stop offset="0.52" stop-color="#d9960f" />
+      <stop offset="0.8" stop-color="#efb321" />
+      <stop offset="1" stop-color="#9e6e0c" />
+    </linearGradient>
+    <linearGradient id="ferrule" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7f8387" />
+      <stop offset="0.3" stop-color="#f3f4f5" />
+      <stop offset="0.62" stop-color="#a6aaae" />
+      <stop offset="1" stop-color="#63676b" />
+    </linearGradient>
+    <linearGradient id="eraser" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c25f5c" />
+      <stop offset="0.3" stop-color="#f3a7a2" />
+      <stop offset="1" stop-color="#a94f4d" />
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9955f" />
+      <stop offset="0.4" stop-color="#f2d4aa" />
+      <stop offset="1" stop-color="#b6844f" />
+    </linearGradient>
+
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="10" dy="22" stdDeviation="18" flood-color="#2a1404" flood-opacity="0.45" />
+    </filter>
+    <filter id="pencilShadow" x="-10%" y="-60%" width="120%" height="260%">
+      <feDropShadow dx="8" dy="16" stdDeviation="9" flood-color="#2a1404" flood-opacity="0.5" />
+    </filter>
+    <filter id="tileShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- the oak tile -->
+  <g filter="url(#tileShadow)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#oak)" />
+  </g>
+  <g clip-path="url(#tile)">
+    <!-- grain: long, slightly wavy strokes -->
+    <g fill="none" stroke="#6b3f17" stroke-linecap="round">
+      <path d="M60 170 C300 150 520 196 760 168 S1000 150 1080 176" stroke-width="5" stroke-opacity="0.16" />
+      <path d="M60 236 C280 222 540 262 800 232 S1020 226 1080 240" stroke-width="3" stroke-opacity="0.13" />
+      <path d="M60 318 C320 300 520 344 740 314 S990 300 1080 322" stroke-width="7" stroke-opacity="0.12" />
+      <path d="M60 402 C260 392 560 430 820 398 S1010 392 1080 410" stroke-width="3" stroke-opacity="0.14" />
+      <path d="M60 486 C300 470 500 512 760 482 S1000 470 1080 494" stroke-width="5" stroke-opacity="0.11" />
+      <path d="M60 572 C280 560 560 600 800 566 S1020 560 1080 580" stroke-width="4" stroke-opacity="0.14" />
+      <path d="M60 660 C320 640 520 684 760 652 S990 644 1080 668" stroke-width="6" stroke-opacity="0.12" />
+      <path d="M60 742 C260 732 560 772 820 738 S1010 732 1080 750" stroke-width="3" stroke-opacity="0.15" />
+      <path d="M60 828 C300 812 500 856 760 824 S1000 812 1080 836" stroke-width="5" stroke-opacity="0.12" />
+      <path d="M60 900 C280 890 560 926 800 896 S1020 890 1080 906" stroke-width="4" stroke-opacity="0.13" />
+      <!-- a knot -->
+      <ellipse cx="770" cy="790" rx="46" ry="16" stroke-width="4" stroke-opacity="0.16" />
+      <ellipse cx="770" cy="790" rx="24" ry="8" stroke-width="3" stroke-opacity="0.14" />
+    </g>
+    <rect x="100" y="100" width="824" height="824" fill="url(#daylight)" />
+    <rect x="100" y="100" width="824" height="824" fill="url(#vignette)" />
+  </g>
+  <!-- soft rim: light on the top edge, dark at the bottom -->
+  <rect x="102" y="102" width="820" height="820" rx="183" fill="none" stroke="#fff6e4" stroke-opacity="0.35" stroke-width="3" />
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="#3b200a" stroke-opacity="0.35" stroke-width="2" />
+
+  <!-- the index card -->
+  <g transform="rotate(-7 500 470)" filter="url(#cardShadow)">
+    <rect x="232" y="290" width="536" height="370" rx="10" fill="url(#paper)" />
+    <!-- red heading rule and blue ruled lines -->
+    <rect x="232" y="356" width="536" height="5" fill="#d0574b" opacity="0.85" />
+    <g fill="#6b9ccc" opacity="0.55">
+      <rect x="232" y="420" width="536" height="3" />
+      <rect x="232" y="480" width="536" height="3" />
+      <rect x="232" y="540" width="536" height="3" />
+      <rect x="232" y="600" width="536" height="3" />
+    </g>
+    <!-- handwriting: a ticked box and two short written lines -->
+    <g fill="none" stroke="#24467a" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="282" y="372" width="40" height="40" rx="6" stroke-width="7" />
+      <path d="M288 392 L304 410 L338 362" stroke-width="10" />
+      <path d="M356 398 C400 388 450 400 500 392 S580 388 620 396" stroke-width="8" />
+      <rect x="282" y="432" width="40" height="40" rx="6" stroke-width="7" />
+      <path d="M356 458 C390 450 440 462 480 454" stroke-width="8" />
+    </g>
+  </g>
+
+  <!-- the pencil, lying across the card -->
+  <g transform="rotate(-32 512 640)" filter="url(#pencilShadow)">
+    <!-- eraser, ferrule, body -->
+    <rect x="186" y="610" width="64" height="60" rx="12" fill="url(#eraser)" />
+    <rect x="236" y="606" width="66" height="68" rx="4" fill="url(#ferrule)" />
+    <g stroke="#55595d" stroke-opacity="0.55" stroke-width="3">
+      <path d="M256 608 V672" />
+      <path d="M270 608 V672" />
+      <path d="M284 608 V672" />
+    </g>
+    <rect x="300" y="610" width="430" height="60" fill="url(#pencilBody)" />
+    <!-- sharpened wood and graphite tip -->
+    <path d="M730 610 L842 640 L730 670 Z" fill="url(#wood)" />
+    <path d="M730 610 L746 618 L730 626 L746 634 L730 642 L746 650 L730 658 L746 666 L730 670 Z" fill="#e7bf86" opacity="0.7" />
+    <path d="M806 630.5 L842 640 L806 649.5 Z" fill="#3a3a3c" />
+  </g>
+</svg>
