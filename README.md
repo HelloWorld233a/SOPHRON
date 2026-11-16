@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.2-8a5a3c"></a>
-  <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-555">
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.3-8a5a3c"></a>
+  <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Android-555">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
   <img alt="Rust" src="https://img.shields.io/badge/Rust-2024%20edition-b7410e">
@@ -90,7 +90,7 @@ Every object on the desk is a desk plugin. The plugin system currently works as 
 | Built-in plugins | Alarm clock, Focus, Tasks, Journal, Archive, Timetable, Record player, Memo and Crisps: nine in total. |
 | What you can do with them | Add or remove them from the "+" drawer in the bottom-left corner; drag; resize (aspect ratio is kept); pin on top; change colours per object. Memos, alarm clocks and crisps can be placed more than once. |
 | Storage | The position, size, stacking order and settings of every object are saved in the local database and restored on the next launch. |
-| 3D plugins | **Ready, still experimental, and off by default.** They include a hardbound journal book, a focus cube, a tent-shaped desk calendar, a bag of crisps and a memo you can lift up (with a hidden place underneath, and an optional password). Switching 3D on or off never changes your data. |
+| 3D plugins | **Experimental, and open to everyone.** A switch in desk settings (on by default on computers). They include a hardbound journal book, a focus cube, a tent-shaped desk calendar, a bag of crisps and a memo you can lift up (with a hidden place underneath, and an optional password). Switching 3D on or off never changes your data. 3D is held back while low-power mode is on. |
 
 ## 6. Architecture and technology
 
@@ -111,17 +111,27 @@ Key design points:
 
 ## 7. Development status
 
-**Version: 0.1.0-beta.2 (beta)**
+**Version: 0.1.0-beta.3 (beta)**
 
 | Item | Status |
 | --- | --- |
 | macOS (Apple Silicon) | Installer available; features tested on the developer's computer with the development build. |
 | macOS (Intel) | Not available yet. |
 | Windows 10 / 11 (64-bit) | Installer available. The Chinese font problem in beta 1 is fixed in beta 2 (please report it in Issues if you still see it). |
+| Android tablets (arm64, Android 7.0 or later) | **New in beta 3:** an installable APK. Built and checked on a computer; **please report how it runs on your tablet.** |
 | Code signing | Not signed yet (the system shows a security prompt during installation; see below). |
 | Minimum OS version | To be confirmed. |
 
 This is a beta release and may still contain bugs. Please use the Back up button in desk settings regularly.
+
+### What's new in 0.1.0-beta.3
+
+- **Android tablets:** SOPHRON now comes as an APK for Android tablets (landscape, full screen). On a touch screen, press and hold an object (a ring fills at your finger) to move it, so a swipe never drags things by accident.
+- **3D is open to everyone:** an "experimental" switch in desk settings, on by default on computers. It is held back while low-power mode is on.
+- **Low-power mode:** a switch in desk settings and a choice in the first-run setup. Fewer effects and no room animations, for older devices. It starts on by itself on Android older than 10 and on older or entry-level chips ([the list is public](docs/LOW_POWER_CHIPS.md)).
+- **Online demo:** try SOPHRON in your browser, with sample tasks, timetable and journal.
+- **Memo:** long notes can be scrolled on a touch screen.
+- Many fixes.
 
 ### What's new in 0.1.0-beta.2
 
@@ -140,6 +150,7 @@ Download the latest version from [Releases](https://github.com/HelloWorld233a/SO
 | --- | --- |
 | macOS (Apple Silicon) | `SOPHRON_…_macOS_AppleSilicon.dmg` |
 | Windows 10 / 11 (64-bit) | `SOPHRON_…_Windows_x64-setup.exe` |
+| Android tablets (arm64) | `SOPHRON_…_Android_arm64.apk` |
 
 **macOS**
 
@@ -151,6 +162,14 @@ Download the latest version from [Releases](https://github.com/HelloWorld233a/SO
 1. Run `setup.exe`.
 2. If you see "Windows protected your PC", click More info, then Run anyway.
 3. The installer needs Microsoft WebView2 and downloads it automatically if it is missing.
+
+**Android**
+
+1. Download the `.apk` on the tablet (or copy it there).
+2. Open it. Android asks you to allow installing apps from this source: allow it for the browser or file manager you used.
+3. Install and open SOPHRON. To update, install the newer `.apk` over the old one (every release is signed with the same key, so your data stays).
+4. Your data lives in the app's own storage, and **uninstalling the app deletes it**. Use Back up in desk settings; backups are kept inside the app too, so they do not survive an uninstall. There is no export or "show backups folder" on Android yet.
+5. Music files you add play until you close the app and are not kept in the playlist. Ambient sounds are not affected.
 
 **Basics**
 
@@ -178,7 +197,7 @@ shasum -a 256 SOPHRON_*.dmg
 
 ```powershell
 # Windows
-certutil -hashfile SOPHRON_0.1.0-beta.2_Windows_x64-setup.exe SHA256
+certutil -hashfile SOPHRON_0.1.0-beta.3_Windows_x64-setup.exe SHA256
 ```
 
 ## 9. Roadmap
@@ -186,7 +205,8 @@ certutil -hashfile SOPHRON_0.1.0-beta.2_Windows_x64-setup.exe SHA256
 These items are planned and have no release date yet:
 
 - Code signing for macOS and Windows.
-- Finishing and testing the 3D plugins, then turning them on for everyone.
+- Finishing and testing the 3D plugins, then dropping the "experimental" label.
+- Testing on more Android tablets, and file export and import on Android.
 - Confirming and documenting the minimum OS versions.
 
 ## 10. Contributing
