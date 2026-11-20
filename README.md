@@ -5,12 +5,13 @@
 <h1 align="center">SOPHRON</h1>
 
 <p align="center">
-  A private desk for your work
+  A private desk for your work: on your computer, your tablet and your phone
 </p>
 
 <p align="center">
   <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.4-8a5a3c"></a>
   <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Android-555">
+  <img alt="Languages" src="https://img.shields.io/badge/languages-繁中%20%7C%20简中%20%7C%20English-6a7f5a">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
   <img alt="Rust" src="https://img.shields.io/badge/Rust-2024%20edition-b7410e">
@@ -27,27 +28,42 @@
 
 <p align="center">
   <a href="https://helloworld233a.github.io/SOPHRON/"><b>▶ Try it online</b></a> — a demo with sample tasks, timetable and journal, right in your browser (nothing is saved).
+  <br>
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases/latest"><b>⬇ Download</b></a> for macOS, Windows and Android.
 </p>
 
 ---
 
-## 1. SOPHRON
+## Contents
 
-**A private desk for your work.**
+1. [What SOPHRON is](#1-what-sophron-is)
+2. [Screenshots](#2-screenshots)
+3. [Features](#3-features)
+4. [SOPHRON on a phone](#4-sophron-on-a-phone)
+5. [Languages](#5-languages)
+6. [Your desk, your way](#6-your-desk-your-way)
+7. [Installation](#7-installation)
+8. [Your data](#8-your-data)
+9. [Development status](#9-development-status)
+10. [Architecture](#10-architecture)
+11. [Roadmap](#11-roadmap)
+12. [Feedback, licence and acknowledgements](#12-feedback-licence-and-acknowledgements)
 
-## 2. Overview
+## 1. What SOPHRON is
 
-SOPHRON is a productivity app built around the idea of a private digital desk. The main screen is a desk, and each object on it opens one feature: an index card for the focus timer, a sticky note for tasks, a composition book for the journal, a folder for the archive and a timetable card for your weekly classes. You can arrange, resize, add and remove these objects to suit the way you work.
+SOPHRON is a productivity app built as a private desk. The main screen is a desk, and every object on it opens one feature: an index card for the focus timer, a sticky note for tasks, a composition book for the journal, a folder for the archive, a timetable card for your classes and a record player for music. Move, resize, add and remove them until the desk suits the way you work.
 
-SOPHRON is a local-first desktop app. All data stays on your own computer: there is no account and nothing is sent over the network.
+On a phone, the same app becomes a **drawer unit** that stands beside your desk: one drawer for each feature, with a clock on top.
 
-> This repository only distributes installers. The source code is not currently public.
+SOPHRON is **local-first**: everything stays on your own device. There is no account, no cloud and nothing is sent over the internet.
 
-**Try it without installing:** [the online demo](https://helloworld233a.github.io/SOPHRON/) runs in your browser, like a demo unit in a shop. It comes with example tasks, a timetable, journal entries and focus history, and the 3D objects are switched on. It starts afresh every time and saves nothing. The demo is a sampler: the real app keeps your data on your computer, backs it up, and plays your own music.
+> This repository only distributes installers. The source code is not public at the moment.
 
-## 3. Screenshots
+**Try it without installing:** [the online demo](https://helloworld233a.github.io/SOPHRON/) runs in your browser, like a demo unit in a shop. It comes with sample tasks, a timetable, journal pages and focus history, and the 3D objects are on. It starts afresh every time and saves nothing. Open it on your phone to see the drawer unit.
 
-The screenshots below come from the current version and show demo data.
+## 2. Screenshots
+
+The screenshots show demo data.
 
 | The desk | First-run setup |
 | :---: | :---: |
@@ -56,102 +72,66 @@ The screenshots below come from the current version and show demo data.
 | <img src="docs/images/tasks.jpg" alt="Tasks" width="420"> | <img src="docs/images/timetable.jpg" alt="Timetable" width="420"> |
 | **Archive** | **Record player and ambient mixer** |
 | <img src="docs/images/archive.jpg" alt="Archive" width="420"> | <img src="docs/images/mixer.jpg" alt="Record player and ambient mixer" width="420"> |
+| **Desk settings (with Language)** | **On a phone** |
+| <img src="docs/images/settings.jpg" alt="Desk settings" width="420"> | <img src="docs/images/phone-drawers.jpg" alt="The drawer unit on a phone" width="200"> <img src="docs/images/phone-timetable.jpg" alt="Timetable on a phone" width="200"> |
 
-## 4. Features
+## 3. Features
 
-| Feature | Description |
+| Feature | What it does |
 | --- | --- |
-| Focus timer | Pomodoro-style timer with focus, short break and long break; adjustable lengths and auto-start; can be linked to the task you are working on; statistics for today and the last seven days; a system notification when a phase ends. |
-| Tasks | Add, complete and reorder tasks; three priority levels; notes; filter by open, done or all; start a focus session on a task directly. |
-| Journal | One page per day with bold, italic, headings, bulleted and numbered lists and quotes; saves automatically; date navigation; word count. |
-| Archive | Weekly focus chart (twelve weeks), a month calendar showing focus minutes and journal entries per day, focus history, completed tasks and a list of journal entries. |
-| Timetable | Weekly timetable with subject, time, room, teacher, colour and notes; shows the class in progress and the next class today. Set up the periods of your school day and view the week by time or by period; add a class on several days at once, or place one subject into many periods in one go; a warning when classes overlap; changing the bell times moves the classes with them. |
-| Record player | Plays music files you choose from your computer. Tap the record for its panel: playlist (play, reorder, remove), repeat all or one, shuffle, volume, a progress bar you can drag, and the record's colour. Or switch to ambient mode and layer rain, thunder, wind, waves, fireplace, white, pink and brown noise freely, with eight presets. |
-| Data safety | Local SQLite database; automatic daily backup (the latest ten are kept); manual backup and JSON export; undo when deleting items. |
-| Language reminder | Shows a small note when swear words are typed in Cantonese, English or Mandarin. The text is never changed, and the reminder can be turned off. |
+| **Focus timer** | Pomodoro-style focus, short break and long break; your own lengths and auto-start; link a session to a task; today's and the last seven days' statistics; a system notification when a phase ends. The timer keeps exact time even when you switch rooms or the computer sleeps. |
+| **Tasks** | Add, tick off and reorder tasks; three priority levels; notes; filter by open, done or all; start a focus session straight from a task. |
+| **Journal** | One page per day with bold, italic, headings, lists and quotes; saves as you type; jump to any date; word count. |
+| **Archive** | A twelve-week focus chart, a month calendar of focus minutes and journal days, focus history, finished tasks and every journal page. |
+| **Timetable** | Your week of classes with subject, time, room, teacher, colour and notes; shows the class in progress and the next one. Set up the periods of your school day (with recess and lunch) and view the week by time or by period; add a class to several days at once, or one subject into many periods in one go; warns about overlaps; when the bell times change, the classes move with them. |
+| **Record player** | Plays your own music files: playlist, repeat, shuffle, volume and a progress bar you can drag. Or switch to ambient mode and mix rain, thunder, wind, waves, fireplace and white, pink and brown noise, with eight presets. |
+| **Memo and more** | Sticky memos (one can lift up to hide a secret underneath, with an optional password), an alarm clock, a desk calendar and a bag of crisps. |
+| **Data safety** | A local SQLite database; an automatic daily backup (the latest ten are kept); manual backup and JSON export; undo after deleting. |
+| **Swear word reminder** | A small note when you type swear words in Cantonese, English or Mandarin. Your text is never changed, and you can turn it off. |
+| **Never a blank window** | If one object can't be drawn, a small card takes its place and the rest of the desk keeps working. Damaged saved settings go back to their defaults. |
 
-## 5. Desk customisation and plugin system
+## 4. SOPHRON on a phone
 
-### Customising the desk
+<img src="docs/images/phone-drawers.jpg" alt="The drawer unit" width="260" align="right">
 
-- Drag an object to move it, and drag its bottom-right corner to resize it.
-- Any object can be pinned so it stays above the others.
-- Some objects have their own colour options: the alarm clock case, the task note paper, the timetable card header and the record player plinth.
-- Desk settings: five wood finishes; eight desk mat colours plus a custom colour; three mat sizes; a tidy mode that keeps every object on the mat; keep the window on top.
-- First-run setup: on first launch, SOPHRON helps you choose the desk style, the objects on the desk and the focus length. It can be run again from desk settings.
+The idea: **the computer is the desk, the phone is the drawers beside it.** On a phone (Android, portrait) SOPHRON doesn't squeeze the desk onto a small screen. It shows a white five-drawer unit instead:
 
-### Plugin system (current state)
+- **The drawers:** Tasks, Journal, Timetable, Materials and Archive. A memo on each drawer says what is inside: how many tasks are open, today's date, the class now or next.
+- **The wooden top** runs across the screen in your desk's own wood. Change the wood on the computer and the phone follows, so the two read as one piece of furniture.
+- **The clock** on top shows the time, the date and the next class (or when this one ends), and the time left during a focus session. Tap it for Focus and Settings.
+- **Open a drawer** and its room slides out, coloured like the inside of that drawer. "Drawers" at the top left takes you back.
+- Every room has a phone layout of its own: Tasks, Journal, Archive and Timetable fit screens down to 320 px wide.
+- Tablets keep the full desk in landscape. You can move objects by pressing and holding them (a ring fills under your finger), so a swipe never drags anything by accident.
 
-Every object on the desk is a desk plugin. The plugin system currently works as follows:
+**Phone ⇄ computer sync (experimental, off by default).** A phone can pair with the computer over the same Wi-Fi and keep tasks, the timetable, journal pages and focus history in step, with no account and no server. Pairing uses a 6-digit code that is never sent; every sync is encrypted. While it is being tested, it is switched off and hidden: turn it on in **Developer settings → Phone link** (tap the version number in desk settings seven times to unlock them). While it is off, nothing listens on the network.
 
-| Item | Current state |
+<br clear="right">
+
+## 5. Languages
+
+**Desk settings → Language** offers three choices. The language is kept on each device.
+
+| Choice | What you see |
 | --- | --- |
-| Where plugins come from | Built into the app and registered automatically at build time. Loading third-party plugins at runtime is not supported yet. |
-| Built-in plugins | Alarm clock, Focus, Tasks, Journal, Archive, Timetable, Record player, Memo and Crisps: nine in total. |
-| What you can do with them | Add or remove them from the "+" drawer in the bottom-left corner; drag; resize (aspect ratio is kept); pin on top; change colours per object. Memos, alarm clocks and crisps can be placed more than once. |
-| Storage | The position, size, stacking order and settings of every object are saved in the local database and restored on the next launch. |
-| 3D plugins | **Experimental, and open to everyone.** A switch in desk settings (on by default on computers). They include a hardbound journal book, a focus cube, a tent-shaped desk calendar, a bag of crisps and a memo you can lift up (with a hidden place underneath, and an optional password). Switching 3D on or off never changes your data. 3D is held back while low-power mode is on. |
+| **繁體中文（台灣）** | English and Traditional Chinese side by side, in formal written Chinese as used in Taiwan (書桌、桌墊、課表、日記、洋芋片…). |
+| **简体中文（新加坡）** | English and Simplified Chinese with Singapore wording (设置、文件夹、时间表、薯片…), and a few lines in a Singapore voice: finish setup and it says “搞定了！”. |
+| **English** | English only. |
 
-## 6. Architecture and technology
+Dates, times and timer notifications follow the language. Only the interface changes: your tasks, journal and class names stay exactly as you wrote them.
 
-| Layer | Technology |
-| --- | --- |
-| Desktop framework | [Tauri 2](https://tauri.app/), a lightweight desktop framework that renders the interface with the system web engine |
-| Interface | React 19, TypeScript, Vite |
-| Backend | Rust (2024 edition) |
-| Database | SQLite (through rusqlite, with WAL mode and versioned migrations) |
-| Text editor | TipTap |
-| Audio | Web Audio API (ambient sounds are synthesised in real time; no recordings are used) |
+## 6. Your desk, your way
 
-Key design points:
+- **Drag** an object to move it and drag its bottom-right corner to resize it (on a touch screen, press and hold first). Any object can be pinned on top.
+- **Add and remove** objects from the “＋” drawer at the bottom left. Memos, alarm clocks and crisps can be placed more than once.
+- **Colours per object:** the alarm clock case, the task note paper, the timetable card header and the record player plinth.
+- **Desk settings (⚙):** five wood finishes; eight desk mat colours or your own; three mat sizes; a tidy mode that keeps everything on the mat; keep the window on top; full screen on Windows (`F11`).
+- **3D objects (experimental, on by default on computers):** a hardbound journal, a focus cube, a tent-shaped calendar, a bag of crisps and the lift-up memo. Switching 3D on or off never touches your data.
+- **Low-power mode:** fewer effects and no room animations, for older devices. It starts on by itself on Android older than 10 and on older or entry-level chips ([the list is public](docs/LOW_POWER_CHIPS.md)), and it holds 3D back.
+- **First-run setup** helps you choose the desk, the objects and the focus length, and can be run again from desk settings.
 
-- **The timer** runs in Rust on wall-clock timestamps, so it stays accurate when you switch rooms or the computer sleeps.
-- **The database is backed up automatically before each migration**, so an upgrade cannot lose data.
-- **The interface** uses a skeuomorphic design (imitating the look of real objects); all textures and icons are original artwork.
+Every object is a built-in **desk plugin**: nine of them, registered when the app is built. Their position, size, order and settings are saved in the local database. Third-party plugins are not supported yet.
 
-## 7. Development status
-
-**Version: 0.1.0-beta.4 (beta)**
-
-| Item | Status |
-| --- | --- |
-| macOS (Apple Silicon) | Installer available; features tested on the developer's computer with the development build. |
-| macOS (Intel) | Not available yet. |
-| Windows 10 / 11 (64-bit) | Installer available. The Chinese font problem in beta 1 is fixed in beta 2 (please report it in Issues if you still see it). |
-| Android phones and tablets (arm64, Android 7.0 or later) | An installable APK (tablets since beta 3; phones get their own drawer layout in beta 4). Built and checked on a computer; **please report how it runs on your device.** |
-| Code signing | Not signed yet (the system shows a security prompt during installation; see below). |
-| Minimum OS version | To be confirmed. |
-
-This is a beta release and may still contain bugs. Please use the Back up button in desk settings regularly.
-
-### What's new in 0.1.0-beta.4
-
-- **Three languages:** Settings → Language: Traditional Chinese (Taiwan), Simplified Chinese (Singapore wording) or English only. Only the interface changes, never what you write.
-- **Chinese text** now uses formal written Traditional Chinese as used in Taiwan.
-- **Phones get a drawer unit:** on a phone the desk becomes a five-drawer unit with a wooden top and a clock; each drawer opens one room.
-- **Nothing can blank the whole window any more:** an object that can't be drawn shows a small card instead, and damaged saved settings fall back to defaults.
-- **Phone ⇄ computer sync (experimental, off by default):** pair over the same Wi-Fi, with no account and no server. For now it lives in Developer settings → Phone link; while it is off, it is hidden and nothing listens on the network.
-- Many fixes.
-
-### What's new in 0.1.0-beta.3
-
-- **Android tablets:** SOPHRON now comes as an APK for Android tablets (landscape, full screen). On a touch screen, press and hold an object (a ring fills at your finger) to move it, so a swipe never drags things by accident.
-- **3D is open to everyone:** an "experimental" switch in desk settings, on by default on computers. It is held back while low-power mode is on.
-- **Low-power mode:** a switch in desk settings and a choice in the first-run setup. Fewer effects and no room animations, for older devices. It starts on by itself on Android older than 10 and on older or entry-level chips ([the list is public](docs/LOW_POWER_CHIPS.md)).
-- **Online demo:** try SOPHRON in your browser, with sample tasks, timetable and journal.
-- **Memo:** long notes can be scrolled on a touch screen.
-- Many fixes.
-
-### What's new in 0.1.0-beta.2
-
-- **Record player:** tap the record to open its panel with the playlist, repeat, shuffle, volume, progress and appearance.
-- **Timetable:** periods (節數), adding a class on several days at once, batch adding, overlap warnings, and classes that follow the bell times.
-- **Windows:** full screen (F11, or the switch in desk settings), and Chinese text now uses Microsoft JhengHei, so it is no longer thin and jagged.
-- **Smoother:** opening and closing rooms is smoother, and text on screen can no longer be selected by accident (only the places you type into).
-- **3D:** ready, but still experimental and off by default (see the plugin table above).
-- Many bug fixes.
-
-## 8. Installation and use
+## 7. Installation
 
 Download the latest version from [Releases](https://github.com/HelloWorld233a/SOPHRON/releases):
 
@@ -159,45 +139,34 @@ Download the latest version from [Releases](https://github.com/HelloWorld233a/SO
 | --- | --- |
 | macOS (Apple Silicon) | `SOPHRON_…_macOS_AppleSilicon.dmg` |
 | Windows 10 / 11 (64-bit) | `SOPHRON_…_Windows_x64-setup.exe` |
-| Android tablets (arm64) | `SOPHRON_…_Android_arm64.apk` |
+| Android phones and tablets (arm64, Android 7.0 or later) | `SOPHRON_…_Android_arm64.apk` |
 
 **macOS**
 
 1. Open the `.dmg` and drag SOPHRON into Applications.
-2. The app is not signed by Apple yet. The first time, right-click SOPHRON in Applications, choose Open, then click Open. After that it opens normally.
+2. SOPHRON isn't signed by an Apple developer yet, so macOS says it can't verify the developer. The first time, right-click SOPHRON in Applications and choose **Open**. On macOS 15 or later, open it once, then go to **System Settings → Privacy & Security** and click **Open Anyway**. After that it opens normally.
+3. If macOS says SOPHRON **“is damaged”**, you have the beta 4 download from before 13:40 (UTC+8) on 20 November 2026: delete it and download it again.
 
 **Windows**
 
-1. Run `setup.exe`.
-2. If you see "Windows protected your PC", click More info, then Run anyway.
-3. The installer needs Microsoft WebView2 and downloads it automatically if it is missing.
+1. Run the `setup.exe`.
+2. If you see “Windows protected your PC”, click **More info**, then **Run anyway**.
+3. The installer needs Microsoft WebView2 and downloads it if it is missing.
 
 **Android**
 
-1. Download the `.apk` on the tablet (or copy it there).
-2. Open it. Android asks you to allow installing apps from this source: allow it for the browser or file manager you used.
-3. Install and open SOPHRON. To update, install the newer `.apk` over the old one (every release is signed with the same key, so your data stays).
-4. Your data lives in the app's own storage, and **uninstalling the app deletes it**. Use Back up in desk settings; backups are kept inside the app too, so they do not survive an uninstall. There is no export or "show backups folder" on Android yet.
-5. Music files you add play until you close the app and are not kept in the playlist. Ambient sounds are not affected.
+1. Download the `.apk` on the phone or tablet (or copy it there).
+2. Open it and allow installing apps from that source (the browser or file manager you used).
+3. To update, install the newer `.apk` over the old one. Every release is signed with the same key, so your data stays.
+4. **Uninstalling deletes your data**, backups included (they are kept inside the app). There is no export on Android yet.
+5. Music files you add play until you close the app; they are not kept in the playlist. Ambient sounds are not affected.
 
 **Basics**
 
-- Click an object on the desk to open its feature. Click Desk in the top-left corner, or press `Esc`, to return.
-- Windows: `F11` switches full screen on and off.
+- Click an object to open it; **Desk** at the top left (or `Esc`) takes you back. On a phone, tap a drawer; **Drawers** takes you back.
 - `⌘` (`Ctrl` on Windows) + `1` to `6`: Desk, Focus, Tasks, Journal, Archive, Timetable.
 
-**Where your data is stored**
-
-| System | Location |
-| --- | --- |
-| macOS | `~/Library/Application Support/app.sophron.desktop/` |
-| Windows | `%APPDATA%\app.sophron.desktop\` |
-
-The database is `sophron.db`; automatic backups are in the `backups` folder next to it.
-
-**Verifying downloads**
-
-Each release includes `SHA256SUMS.txt`:
+**Checking a download.** Each release has a `SHA256SUMS.txt`:
 
 ```bash
 # macOS
@@ -209,23 +178,96 @@ shasum -a 256 SOPHRON_*.dmg
 certutil -hashfile SOPHRON_0.1.0-beta.4_Windows_x64-setup.exe SHA256
 ```
 
-## 9. Roadmap
+## 8. Your data
 
-These items are planned and have no release date yet:
+All of it stays on your device: no account, no analytics, nothing online.
 
+| System | Location |
+| --- | --- |
+| macOS | `~/Library/Application Support/app.sophron.desktop/` |
+| Windows | `%APPDATA%\app.sophron.desktop\` |
+| Android | Inside the app's own storage (removed when you uninstall) |
+
+The database is `sophron.db`; automatic backups are in the `backups` folder next to it. The database is also backed up before every upgrade changes it.
+
+## 9. Development status
+
+**Version: 0.1.0-beta.4 (beta)**
+
+| Item | Status |
+| --- | --- |
+| macOS (Apple Silicon) | Installer available. |
+| macOS (Intel) | Not available yet. |
+| Windows 10 / 11 (64-bit) | Installer available. |
+| Android tablets | APK available since beta 3 (landscape, the full desk). |
+| Android phones | **New in beta 4:** the drawer unit (portrait). Built and checked on a computer; **please report how it runs on your phone.** |
+| Phone ⇄ computer sync | Experimental, off by default (Developer settings → Phone link). |
+| Code signing | Not signed by an Apple or Microsoft developer yet (see Installation). |
+
+This is a beta and may still have bugs. Use **Back up** in desk settings now and then.
+
+### What's new in 0.1.0-beta.4
+
+- **Phones:** the drawer unit with its clock and wooden top, and phone layouts for every room.
+- **Three languages:** Traditional Chinese (Taiwan), Simplified Chinese (Singapore) or English only.
+- **Chinese text** rewritten in formal written Traditional Chinese as used in Taiwan.
+- **Never a blank window:** one object that can't be drawn no longer takes the whole desk down.
+- **Phone ⇄ computer sync:** built, encrypted and waiting in Developer settings while it is tested.
+- **macOS:** the app is now fully signed (ad hoc), so a downloaded copy is no longer reported as damaged.
+- Many fixes.
+
+<details>
+<summary>Earlier versions</summary>
+
+**0.1.0-beta.3**
+
+- Android tablets: an APK (landscape, full screen); press and hold an object to move it.
+- 3D objects for everyone (experimental, on by default on computers).
+- Low-power mode, on by itself on older devices.
+- The online demo.
+- Long memos scroll on a touch screen; many fixes.
+
+**0.1.0-beta.2**
+
+- Record player panel: playlist, repeat, shuffle, volume, progress and colour.
+- Timetable: periods, a class on several days at once, batch adding, overlap warnings, classes that follow the bell times.
+- Windows: full screen (`F11`) and a proper Chinese font (Microsoft JhengHei).
+- Smoother room transitions; text can no longer be selected by accident.
+
+</details>
+
+## 10. Architecture
+
+| Layer | Technology |
+| --- | --- |
+| App framework | [Tauri 2](https://tauri.app/): one app for macOS, Windows and Android, drawn by the system's own web engine |
+| Interface | React 19, TypeScript, Vite |
+| Back end | Rust (2024 edition) |
+| Database | SQLite through rusqlite (WAL mode, versioned migrations) |
+| Text editor | TipTap |
+| Sound | Web Audio API (ambient sounds are synthesised live; no recordings) |
+| Phone link | UDP discovery, SPAKE2 pairing, ChaCha20-Poly1305 encryption (experimental) |
+
+- **The timer** runs in Rust on wall-clock timestamps, so it stays exact through room changes and sleep.
+- **Migrations back up first**, so an upgrade can't lose data.
+- **Skeuomorphic design:** everything imitates real objects; all textures and icons are original artwork.
+- **One set of labels, three languages:** Simplified Chinese is generated from the Taiwan text, then Singapore words and phrases are swapped in.
+
+## 11. Roadmap
+
+Planned, with no dates yet:
+
+- Phone ⇄ computer sync for everyone, with pairing by QR code.
+- The Materials drawer: send photos and notes from the phone to a folder on the computer.
 - Code signing for macOS and Windows.
-- Finishing and testing the 3D plugins, then dropping the "experimental" label.
-- Testing on more Android tablets, and file export and import on Android.
-- Confirming and documenting the minimum OS versions.
+- Finishing the 3D objects and dropping the “experimental” label.
+- Export and import on Android; testing on more phones and tablets.
+- Confirming the minimum system versions.
 
-## 10. Contributing
+## 12. Feedback, licence and acknowledgements
 
-The source code is not public yet, so code contributions cannot be accepted for now. Bug reports and suggestions are welcome in [Issues](https://github.com/HelloWorld233a/SOPHRON/issues). When reporting a problem, please include your operating system version, the SOPHRON version and the steps to reproduce it.
+**Feedback.** The source code isn't public, so code contributions can't be accepted yet. Bug reports and ideas are very welcome in [Issues](https://github.com/HelloWorld233a/SOPHRON/issues): please include your system and its version, the SOPHRON version and the steps that lead to the problem.
 
-## 11. License
+**Licence.** No licence has been chosen yet.
 
-No license has been specified yet.
-
-## 12. Acknowledgements
-
-SOPHRON is built with these open-source projects: [Tauri](https://tauri.app/), [React](https://react.dev/), [Vite](https://vite.dev/), [TipTap](https://tiptap.dev/), [rusqlite](https://github.com/rusqlite/rusqlite) and [SQLite](https://sqlite.org/). The interface fonts Inter, Caveat and Cormorant Garamond are licensed under the SIL Open Font License and provided through [Fontsource](https://fontsource.org/).
+**Acknowledgements.** SOPHRON is built with [Tauri](https://tauri.app/), [React](https://react.dev/), [Vite](https://vite.dev/), [TipTap](https://tiptap.dev/), [rusqlite](https://github.com/rusqlite/rusqlite) and [SQLite](https://sqlite.org/). The fonts Inter, Caveat and Cormorant Garamond are under the SIL Open Font License, through [Fontsource](https://fontsource.org/).
