@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.3-8a5a3c"></a>
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.4-8a5a3c"></a>
   <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Android-555">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
@@ -111,18 +111,27 @@ Key design points:
 
 ## 7. Development status
 
-**Version: 0.1.0-beta.3 (beta)**
+**Version: 0.1.0-beta.4 (beta)**
 
 | Item | Status |
 | --- | --- |
 | macOS (Apple Silicon) | Installer available; features tested on the developer's computer with the development build. |
 | macOS (Intel) | Not available yet. |
 | Windows 10 / 11 (64-bit) | Installer available. The Chinese font problem in beta 1 is fixed in beta 2 (please report it in Issues if you still see it). |
-| Android tablets (arm64, Android 7.0 or later) | **New in beta 3:** an installable APK. Built and checked on a computer; **please report how it runs on your tablet.** |
+| Android phones and tablets (arm64, Android 7.0 or later) | An installable APK (tablets since beta 3; phones get their own drawer layout in beta 4). Built and checked on a computer; **please report how it runs on your device.** |
 | Code signing | Not signed yet (the system shows a security prompt during installation; see below). |
 | Minimum OS version | To be confirmed. |
 
 This is a beta release and may still contain bugs. Please use the Back up button in desk settings regularly.
+
+### What's new in 0.1.0-beta.4
+
+- **Three languages:** Settings → Language: Traditional Chinese (Taiwan), Simplified Chinese (Singapore wording) or English only. Only the interface changes, never what you write.
+- **Chinese text** now uses formal written Traditional Chinese as used in Taiwan.
+- **Phones get a drawer unit:** on a phone the desk becomes a five-drawer unit with a wooden top and a clock; each drawer opens one room.
+- **Nothing can blank the whole window any more:** an object that can't be drawn shows a small card instead, and damaged saved settings fall back to defaults.
+- **Phone ⇄ computer sync (experimental, off by default):** pair over the same Wi-Fi, with no account and no server. For now it lives in Developer settings → Phone link; while it is off, it is hidden and nothing listens on the network.
+- Many fixes.
 
 ### What's new in 0.1.0-beta.3
 
@@ -197,7 +206,7 @@ shasum -a 256 SOPHRON_*.dmg
 
 ```powershell
 # Windows
-certutil -hashfile SOPHRON_0.1.0-beta.3_Windows_x64-setup.exe SHA256
+certutil -hashfile SOPHRON_0.1.0-beta.4_Windows_x64-setup.exe SHA256
 ```
 
 ## 9. Roadmap

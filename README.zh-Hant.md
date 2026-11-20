@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.3-8a5a3c"></a>
+  <a href="https://github.com/HelloWorld233a/SOPHRON/releases"><img alt="Version" src="https://img.shields.io/badge/version-0.1.0--beta.4-8a5a3c"></a>
   <img alt="Platforms" src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Android-555">
   <img alt="Tauri 2" src="https://img.shields.io/badge/Tauri-2-24c8db">
   <img alt="React 19" src="https://img.shields.io/badge/React-19-61dafb">
@@ -111,18 +111,27 @@ SOPHRON 是本地優先（local-first，即資料儲存在自己的電腦，而�
 
 ## 7. 目前開發狀態
 
-**版本：0.1.0-beta.3（測試版）**
+**版本：0.1.0-beta.4（測試版）**
 
 | 項目 | 狀態 |
 | --- | --- |
 | macOS（Apple Silicon） | 已提供安裝檔；功能已在開發者的電腦上以開發版本測試。 |
 | macOS（Intel） | 尚未提供。 |
 | Windows 10 / 11（64 位元） | 已提供安裝檔。beta 1 的中文字體問題已在 beta 2 修正（如仍有問題，歡迎在 Issues 回報）。 |
-| Android 平板（arm64，Android 7.0 或以上） | **beta 3 新增：** 可安裝嘅 APK。已喺電腦上編譯同檢查；**歡迎回報喺你部平板上嘅表現。** |
+| Android 手機與平板（arm64，Android 7.0 或以上） | 提供可安裝的 APK（平板自 beta 3 起；beta 4 起手機有專屬的抽屜櫃版面）。已在電腦上編譯與檢查；**歡迎回報在您裝置上的表現。** |
 | 程式碼簽署 | 尚未簽署（安裝時會出現系統安全提示，見下文）。 |
 | 最低系統版本 | 待確認。 |
 
 這是測試版本，可能仍有錯誤。建議定期使用書桌設定中的「備份」功能。
+
+### 0.1.0-beta.4 更新重點
+
+- **三種語言：** 書桌設定 → 語言，可選擇繁體中文（台灣）、简体中文（新加坡用語）或 English。只變更介面文字，您輸入的內容不受影響。
+- **中文介面改用台灣書面語：** 所有中文文字改為正式書面語，用詞更精簡。
+- **手機版抽屜櫃：** 在手機上，書桌會變成五格抽屜櫃，頂部有木板與時鐘，每個抽屜開啟一項功能。
+- **視窗不再整片空白：** 若某個物件無法顯示，只會在原位顯示一張小卡片，其他功能照常使用；損壞的設定會自動恢復為預設值。
+- **手機 ⇄ 電腦同步（實驗功能，預設關閉）：** 在同一 Wi-Fi 下直接配對同步，無需帳號或伺服器。目前位於開發人員選項 → 手機連線；關閉時不會顯示，也不會在網路上等待連線。
+- 修正多項錯誤。
 
 ### 0.1.0-beta.3 更新重點
 
@@ -197,7 +206,7 @@ shasum -a 256 SOPHRON_*.dmg
 
 ```powershell
 # Windows
-certutil -hashfile SOPHRON_0.1.0-beta.3_Windows_x64-setup.exe SHA256
+certutil -hashfile SOPHRON_0.1.0-beta.4_Windows_x64-setup.exe SHA256
 ```
 
 ## 9. 未來開發計劃
