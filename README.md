@@ -103,7 +103,7 @@ The idea: **the computer is the desk, the phone is the drawers beside it.** On a
 - Every room has a phone layout of its own: Tasks, Journal, Archive and Timetable fit screens down to 320 px wide.
 - Tablets keep the full desk in landscape. You can move objects by pressing and holding them (a ring fills under your finger), so a swipe never drags anything by accident.
 
-**Phone ⇄ computer sync (experimental, off by default).** A phone can pair with the computer over the same Wi-Fi and keep tasks, the timetable, journal pages and focus history in step, with no account and no server. Pairing uses a 6-digit code that is never sent; every sync is encrypted. While it is being tested, it is switched off and hidden: turn it on in **Developer settings → Phone link** (tap the version number in desk settings seven times to unlock them). While it is off, nothing listens on the network.
+**Coming later: phone ⇄ computer sync.** A phone will pair with the computer over the same Wi-Fi and keep tasks, the timetable, journal pages and focus history in step, with no account and no server, and every sync encrypted. It is still being tested and is not available yet.
 
 <br clear="right">
 
@@ -201,7 +201,7 @@ The database is `sophron.db`; automatic backups are in the `backups` folder next
 | Windows 10 / 11 (64-bit) | Installer available. |
 | Android tablets | APK available since beta 3 (landscape, the full desk). |
 | Android phones | **New in beta 4:** the drawer unit (portrait). Built and checked on a computer; **please report how it runs on your phone.** |
-| Phone ⇄ computer sync | Experimental, off by default (Developer settings → Phone link). |
+| Phone ⇄ computer sync | Being tested; not available yet. |
 | Code signing | Not signed by an Apple or Microsoft developer yet (see Installation). |
 
 This is a beta and may still have bugs. Use **Back up** in desk settings now and then.
@@ -212,7 +212,6 @@ This is a beta and may still have bugs. Use **Back up** in desk settings now and
 - **Three languages:** Traditional Chinese (Taiwan), Simplified Chinese (Singapore) or English only.
 - **Chinese text** rewritten in formal written Traditional Chinese as used in Taiwan.
 - **Never a blank window:** one object that can't be drawn no longer takes the whole desk down.
-- **Phone ⇄ computer sync:** built, encrypted and waiting in Developer settings while it is tested.
 - **macOS:** the app is now fully signed (ad hoc), so a downloaded copy is no longer reported as damaged.
 - Many fixes.
 
